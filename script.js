@@ -13,3 +13,31 @@ const apiUrls = [
 ];
 
 // You can write your code here
+let fetchData = (url)=>{
+	return fetch(url)
+	.then(response => response.json());
+	.catch(error => console.log(error));
+}
+
+let promiseall = (){
+	let startTime = performance.now();
+    Promise.all(fetchData(apiUrls.map))
+	.then(data => {
+		let endTime = performance.now()
+		let timeTaken =(startTime - endTime).toFixed(2)
+		document.getElementById('output-all').innerHTML = timeTaken;
+	});
+}
+
+let promiseany = (){
+	let startTime = performance.now();
+	Promise.any(fetchData(apiUrls.map))
+	.then(data => {
+		let endTime = performance.now();
+		let timeTaken = (startTime - endTime).toFixed(2)
+		document.getElementById('output-any').innerHTML = timeTaken;
+	});
+}
+
+promiseall();
+promiseany();
