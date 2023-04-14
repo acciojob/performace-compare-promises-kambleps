@@ -24,7 +24,7 @@ let promiseall = () => {
     Promise.all(apiUrls.map(fetchData))
 	.then(data => {
 		let endTime = performance.now()
-		let timeTaken =(startTime - endTime).toFixed(2)
+		let timeTaken =(endTime - startTime).toFixed(2)
 		document.getElementById('output-all').innerHTML = timeTaken;
 	});
 }
@@ -34,7 +34,7 @@ let promiseany = () => {
 	Promise.any(apiUrls.map(fetchData))
 	.then(data => {
 		let endTime = performance.now();
-		let timeTaken = (startTime - endTime).toFixed(2)
+		let timeTaken = (endTime - startTime).toFixed(2)
 		document.getElementById('output-any').innerHTML = timeTaken;
 	});
 }
