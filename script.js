@@ -21,7 +21,7 @@ let fetchData = (url)=>{
 
 let promiseall = (){
 	let startTime = performance.now();
-    Promise.all(fetchData(apiUrls.map))
+    Promise.all(apiUrls.map(fetchData))
 	.then(data => {
 		let endTime = performance.now()
 		let timeTaken =(startTime - endTime).toFixed(2)
@@ -31,7 +31,7 @@ let promiseall = (){
 
 let promiseany = (){
 	let startTime = performance.now();
-	Promise.any(fetchData(apiUrls.map))
+	Promise.any(apiUrls.map(fetchData))
 	.then(data => {
 		let endTime = performance.now();
 		let timeTaken = (startTime - endTime).toFixed(2)
