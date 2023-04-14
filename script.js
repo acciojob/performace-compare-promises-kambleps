@@ -13,13 +13,13 @@ const apiUrls = [
 ];
 
 // You can write your code here
-let fetchData = (url)=>{
+let fetchData = (url) => {
 	return fetch(url)
 	.then(response => response.json());
 	.catch(error => console.log(error));
 }
 
-let promiseall = (){
+let promiseall = () => {
 	let startTime = performance.now();
     Promise.all(apiUrls.map(fetchData))
 	.then(data => {
@@ -29,7 +29,7 @@ let promiseall = (){
 	});
 }
 
-let promiseany = (){
+let promiseany = () => {
 	let startTime = performance.now();
 	Promise.any(apiUrls.map(fetchData))
 	.then(data => {
